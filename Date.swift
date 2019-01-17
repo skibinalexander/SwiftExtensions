@@ -26,6 +26,10 @@ extension Date {
         return self.toString(format: "dd.MM.YYYY");
     }
     
+    func toServerDateString() -> String {
+        return self.toString(format: "YYYY-MM-dd");
+    }
+    
     func toNormalDateAndTime() -> String {
         return self.toString(format: "dd.MM.YYYY HH:mm");
     }
