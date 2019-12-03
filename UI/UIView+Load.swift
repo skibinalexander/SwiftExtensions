@@ -17,6 +17,10 @@ extension UIView {
     class func fromString<T: UIView>(nameNib: String) -> T {
         return Bundle.main.loadNibNamed(String(describing: nameNib), owner: nil, options: nil)![0] as! T
     }
+    
+    class func instanceFromNib() -> UIView {
+        return UINib(nibName: self.className, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    }
 }
 
 extension UIView {
