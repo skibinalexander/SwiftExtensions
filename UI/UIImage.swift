@@ -44,3 +44,14 @@ extension UIImage {
         return base64(format:format)
     }
 }
+
+// MARK: - UIImageFromData+DefaultIcon
+extension UIImage {
+    convenience init(imageData: Data?, defaultName: String) {
+        if let image = imageData {
+            self.init(data: image)!
+        } else {
+            self.init(named: defaultName)!
+        }
+    }
+}
