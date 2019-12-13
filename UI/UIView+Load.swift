@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol UIViewCreation: UIView {
+protocol UIViewNibLoad: UIView {
     static func fromNib() -> Self
 }
 
-extension UIViewCreation {
+extension UIViewNibLoad {
     static func fromNib() -> Self {
         return Bundle.main.loadNibNamed(Self.className, owner: nil, options: nil)![0] as! Self
     }
