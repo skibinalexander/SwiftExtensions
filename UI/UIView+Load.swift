@@ -9,11 +9,17 @@
 import Foundation
 import UIKit
 
-extension UIView {
-    class func fromNib<T: UIView>() -> T {
-        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+protocol UIViewCreation: UIView {
+    static func fromNib() -> Self
+}
+
+extension UIViewCreation {
+    static func fromNib() -> Self {
+        return Bundle.main.loadNibNamed(Self.className, owner: nil, options: nil)![0] as! Self
     }
-    
+}
+
+extension UIView {
     class func fromString<T: UIView>(nameNib: String) -> T {
         return Bundle.main.loadNibNamed(String(describing: nameNib), owner: nil, options: nil)![0] as! T
     }
